@@ -2,6 +2,7 @@
 @use "../abstracts/mixins";
 
 .navigation {
+  position: relative;
   &__checkbox {
     display: none;
   }
@@ -15,6 +16,7 @@
     right: 6rem;
     z-index: 1010;
     box-shadow: 0 1rem 3rem rgba(variables.$color-black, 0.1);
+    cursor: pointer;
   }
   &__background {
     height: 6rem;
@@ -29,8 +31,6 @@
     right: 6.5rem;
     z-index: 1000;
     transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
-
-    // transform: scale(80);
   }
   &__nav {
     height: 100vh;
@@ -43,6 +43,8 @@
     transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
   &__list {
+    position: absolute;
+
     @include mixins.center-horizontal-vertical;
 
     list-style: none;
@@ -90,5 +92,53 @@
   &__checkbox:checked ~ &__nav {
     width: 100%;
     opacity: 1;
+  }
+
+  //   nav icon
+
+  &__icon {
+    position: relative;
+    @include mixins.center-horizontal-vertical;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: variables.$color-grey-dark-3;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__button &__icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    transform: rotate(-45deg);
+    top: 0;
   }
 }
