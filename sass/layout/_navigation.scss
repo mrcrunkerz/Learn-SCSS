@@ -17,7 +17,17 @@
     z-index: 1010;
     box-shadow: 0 1rem 3rem rgba(variables.$color-black, 0.1);
     cursor: pointer;
+
+    @include mixins.respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include mixins.respond(phone) {
+      top: 2.5rem;
+      right: 2.5rem;
+    }
   }
+
   &__background {
     height: 6rem;
     width: 6rem;
@@ -31,6 +41,15 @@
     right: 6.5rem;
     z-index: 1000;
     transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+
+    @include mixins.respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+    @include mixins.respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
   }
   &__nav {
     height: 100vh;
@@ -75,6 +94,10 @@
 
       span {
         margin-right: 1.5rem;
+      }
+
+      @include mixins.respond(phone) {
+        font-size: 2.5rem;
       }
     }
 
