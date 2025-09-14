@@ -1,0 +1,15 @@
+{
+  "name": "advance-css",
+  "version": "1.0.0",
+  "description": "Landing Page for Vera",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss style.css -w"
+  },
+  "author": "Verakumar",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.89.1"
+  }
+}
+

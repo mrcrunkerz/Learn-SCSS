@@ -1,0 +1,37 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.feature-box {
+  background-color: rgba(variables.$color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba(variables.$color-black, 0.15);
+  transition: all 0.2s;
+
+  @include mixins.respond(tab-port) {
+    padding: 2rem;
+  }
+
+  &__icon {
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-primay-light,
+      variables.$color-primay-dark
+    );
+    color: transparent;
+    background-clip: text;
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+
+    @include mixins.respond(tab-port) {
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
